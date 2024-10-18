@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (player == 0 && ai == 2 || player == 1 && ai == 0 || player == 2 && ai == 1) {
             Toast.makeText(this, "Nyertél!", Toast.LENGTH_SHORT).show();
             playerScore++;
-            //textViewResult.setText("Eredmény: Ember: " + playerScore + " Computer: " + aiScore);
+            //textViewResult.setText("Eredmény: Ember: %d, " Computer: %d", playerScore, aiScore);
             if (playerScore == 1) {
                 aiImageViewHeart1.setImageResource(R.drawable.heart1);
             } else if (playerScore == 2) {
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "A gép nyert!", Toast.LENGTH_SHORT).show();
             aiScore++;
-            //textViewResult.setText("Eredmény: Ember: " + playerScore + " Computer: " + aiScore);
+            //textViewResult.setText("Eredmény: Ember: %d, " Computer: %d", playerScore, aiScore);
             if (aiScore == 1) {
                 playerImageViewHeart1.setImageResource(R.drawable.heart1);
             } else if (aiScore == 2) {
