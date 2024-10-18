@@ -4,70 +4,171 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageViewPlayerPick"
+    <!-- Extra feladatok -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/aiImageViewHeart1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/heart2" />
+
+        <ImageView
+            android:id="@+id/aiImageViewHeart2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/heart2" />
+
+        <ImageView
+            android:id="@+id/aiImageViewHeart3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/heart2" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Gép"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Játékos"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/playerImageViewHeart1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/heart2" />
+
+        <ImageView
+            android:id="@+id/playerImageViewHeart2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/heart2" />
+
+        <ImageView
+            android:id="@+id/playerImageViewHeart3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/heart2" />
+    </LinearLayout>
+
+    <!-- Extra feladatok vége -->
+
+    <TextView
+        android:id="@+id/drawTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Döntetlenek száma: "
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageViewPlayerPick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:src="@drawable/rock" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A te választásod"
+        android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/imageViewAiPick"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:src="@drawable/rock" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="A gép választása"
         android:textAlignment="center"
         android:textSize="30sp" />
 
-
-    <TextView
+   <!-- <TextView
         android:id="@+id/textViewResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp" />
-
+        android:textSize="25sp" /> -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewRockClick"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:src="@drawable/rock" />
+
+        <ImageView
+            android:id="@+id/imageViewPaperClick"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:src="@drawable/paper" />
+
+        <ImageView
+            android:id="@+id/imageViewScissorsClick"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:src="@drawable/scissors" />
+    </LinearLayout>
+
+   <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/buttonRock"
             android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="KŐ" />
+            android:text="Rock" />
 
         <Button
             android:id="@+id/buttonPaper"
             android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="PAPÍR" />
+            android:text="Paper" />
 
         <Button
             android:id="@+id/buttonScissors"
             android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="OLLÓ" />
-
-    </LinearLayout>
-
-
+            android:text="Scissors" />
+    </LinearLayout> -->
 </LinearLayout>

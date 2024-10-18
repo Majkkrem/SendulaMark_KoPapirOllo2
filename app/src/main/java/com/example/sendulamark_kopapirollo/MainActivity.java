@@ -32,6 +32,20 @@ public class MainActivity extends AppCompatActivity {
     private ImageView aiPick;
     private TextView textViewResult;
 
+    //EXTRÁK
+    private TextView drawTextView;
+    private int drawCounter;
+    private ImageView aiImageViewHeart1;
+    private ImageView aiImageViewHeart2;
+    private ImageView aiImageViewHeart3;
+    private ImageView playerImageViewHeart1;
+    private ImageView playerImageViewHeart2;
+    private ImageView playerImageViewHeart3;
+    private ImageView imageViewRockClick;
+    private ImageView imageViewPaperClick;
+    private ImageView imageViewScissorsClick;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,26 +58,47 @@ public class MainActivity extends AppCompatActivity {
         });
         init();
 
-        buttonRock.setOnClickListener(new View.OnClickListener() {
+        imageViewRockClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkWin(0);
             }
         });
 
-        buttonPaper.setOnClickListener(new View.OnClickListener() {
+        imageViewPaperClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkWin(1);
             }
         });
 
-        buttonScissors.setOnClickListener(new View.OnClickListener() {
+        imageViewScissorsClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkWin(2);
             }
         });
+
+//        buttonRock.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                checkWin(0);
+//            }
+//        });
+//
+//        buttonPaper.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                checkWin(1);
+//            }
+//        });
+//
+//        buttonScissors.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                checkWin(2);
+//            }
+//        });
     }
 
     public void init() {
@@ -71,13 +106,28 @@ public class MainActivity extends AppCompatActivity {
         ai = 0;
         playerScore = 0;
         aiScore = 0;
+        drawCounter = 0;
         random = new Random();
         playerPick = findViewById(R.id.imageViewPlayerPick);
         aiPick = findViewById(R.id.imageViewAiPick);
-        buttonRock = findViewById(R.id.buttonRock);
-        buttonPaper = findViewById(R.id.buttonPaper);
-        buttonScissors = findViewById(R.id.buttonScissors);
-        textViewResult = findViewById(R.id.textViewResult);
+        //buttonRock = findViewById(R.id.buttonRock);
+        //buttonPaper = findViewById(R.id.buttonPaper);
+        //buttonScissors = findViewById(R.id.buttonScissors);
+
+        //EXTRÁK
+        imageViewRockClick = findViewById(R.id.imageViewRockClick);
+        imageViewPaperClick = findViewById(R.id.imageViewPaperClick);
+        imageViewScissorsClick = findViewById(R.id.imageViewScissorsClick);
+        drawTextView = findViewById(R.id.drawTextView);
+        aiImageViewHeart1 = findViewById(R.id.aiImageViewHeart1);
+        aiImageViewHeart2 = findViewById(R.id.aiImageViewHeart2);
+        aiImageViewHeart3 = findViewById(R.id.aiImageViewHeart3);
+        playerImageViewHeart1 = findViewById(R.id.playerImageViewHeart1);
+        playerImageViewHeart2 = findViewById(R.id.playerImageViewHeart2);
+        playerImageViewHeart3 = findViewById(R.id.playerImageViewHeart3);
+
+
+        //textViewResult = findViewById(R.id.textViewResult);
         if (playerScore >= aiScore) {
             alertDialog = new AlertDialog.Builder(this)
                     .setTitle("Győzelem")
@@ -119,14 +169,31 @@ public class MainActivity extends AppCompatActivity {
         setAiImage(ai);
         if (player == ai) {
             Toast.makeText(this, "Draw", Toast.LENGTH_SHORT).show();
+            drawCounter++;
+            drawTextView.setText("Döntetlenek száma: " + drawCounter);
         } else if (player == 0 && ai == 2 || player == 1 && ai == 0 || player == 2 && ai == 1) {
             Toast.makeText(this, "Nyertél!", Toast.LENGTH_SHORT).show();
             playerScore++;
-            textViewResult.setText("Eredmény: Ember: " + playerScore + " Computer: " + aiScore);
+            //textViewResult.setText("Eredmény: Ember: " + playerScore + " Computer: " + aiScore);
+            if (playerScore == 1) {
+                aiImageViewHeart1.setImageResource(R.drawable.heart1);
+            } else if (playerScore == 2) {
+                aiImageViewHeart2.setImageResource(R.drawable.heart1);
+            } else if (playerScore == 3) {
+                aiImageViewHeart3.setImageResource(R.drawable.heart1);
+            }
+
         } else {
             Toast.makeText(this, "A gép nyert!", Toast.LENGTH_SHORT).show();
             aiScore++;
-            textViewResult.setText("Eredmény: Ember: " + playerScore + " Computer: " + aiScore);
+            //textViewResult.setText("Eredmény: Ember: " + playerScore + " Computer: " + aiScore);
+            if (aiScore == 1) {
+                playerImageViewHeart1.setImageResource(R.drawable.heart1);
+            } else if (aiScore == 2) {
+                playerImageViewHeart2.setImageResource(R.drawable.heart1);
+            } else if (aiScore == 3) {
+                playerImageViewHeart3.setImageResource(R.drawable.heart1);
+            }
         }
 
         if (playerScore == 3 || aiScore == 3) {
