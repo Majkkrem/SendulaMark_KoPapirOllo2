@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
         if (player == ai) {
             Toast.makeText(this, "Draw", Toast.LENGTH_SHORT).show();
             drawCounter++;
-            drawTextView.setText("Döntetlenek száma: " + drawCounter);
+            drawTextView.setText(String.format("Döntetlenek száma: %d", drawCounter));
         } else if (player == 0 && ai == 2 || player == 1 && ai == 0 || player == 2 && ai == 1) {
             Toast.makeText(this, "Nyertél!", Toast.LENGTH_SHORT).show();
             playerScore++;
